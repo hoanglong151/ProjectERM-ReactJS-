@@ -8,7 +8,7 @@ const connect = require('./middlewares/connectDB');
 const homeRoute = require('./routes/home.route');
 const adminRoute = require('./routes/admin.route');
 const app = express();
-const port = process.env.PORT || 9000;
+// const port = process.env.PORT || 9000;
 // Connect DB
 connect();
 
@@ -25,6 +25,4 @@ app.get('/*', (req, res) => {
 app.use('/', homeRoute);
 app.use('/admin', adminRoute);
 
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
-})
+app.listen(process.env.PORT || 3000)
